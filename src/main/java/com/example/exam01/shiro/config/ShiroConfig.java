@@ -31,12 +31,14 @@ public class ShiroConfig {
                 authc: 必须认证才可以访问
                 user: 使用 rememberMe 的功能可以直接访问
                 perms: 该资源必须得到资源权限才可以访问
-                role: 该资源必须得到角色权限才可以访问
+                roles: 该资源必须得到角色权限才可以访问
          */
         // 注意配置顺序
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/", "anon");
+        // 权限拦截
         filterChainDefinitionMap.put("/admin/**", "perms[user:admin]");
+        // 角色拦截
         filterChainDefinitionMap.put("/role/**", "roles[user]");
         filterChainDefinitionMap.put("/user/**", "authc");
         filterChainDefinitionMap.put("/logout", "authc");
