@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=true
+    username: root
+    password: root
+  thymeleaf:
+    encoding: UTF-8
