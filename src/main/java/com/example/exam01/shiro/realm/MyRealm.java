@@ -39,8 +39,15 @@ public class MyRealm extends AuthorizingRealm {
         Set<String> stringSet = new HashSet<>();
         stringSet.add(user.getPrems());
 
+        // 创建一个 set 集合用来保存当前用户的角色信息
+        HashSet<String> role = new HashSet<>();
+        role.add(user.getRole());
+
         // 将授权信息写入 SimpleAuthorizationInfo 对象中
         info.setStringPermissions(stringSet);
+        // 将角色信息写入 SimpleAuthorizationInfo 对象中
+        info.setRoles(role);
+
         return info;
     }
 
